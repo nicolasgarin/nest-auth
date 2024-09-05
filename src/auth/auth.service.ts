@@ -44,7 +44,7 @@ export class AuthService {
     };
   }
 
-  async signin(dto: AuthDto, req: Request, res: Response) {
+  async signin(dto: AuthDto, res: Response) {
     const { email, password } = dto;
 
     const foundUser = await this.prisma.user.findUnique({
@@ -82,7 +82,7 @@ export class AuthService {
     });
   }
 
-  async signout(req: Request, res: Response) {
+  async signout(res: Response) {
     res.clearCookie('token');
     return res.send({
       msg: 'signout was successful',

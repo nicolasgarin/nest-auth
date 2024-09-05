@@ -18,11 +18,11 @@ export class UsersService {
     });
 
     if (!foundUser) {
-      throw new NotFoundException('User not found');
+      throw new NotFoundException();
     }
 
     if (foundUser.id !== decodedUser.userId) {
-      throw new ForbiddenException('User2 not found');
+      throw new ForbiddenException();
     }
 
     delete foundUser.hashedPassword;
@@ -43,7 +43,7 @@ export class UsersService {
     }
 
     if (foundUser.id !== decodedUser.userId) {
-      throw new ForbiddenException('User2 not found');
+      throw new ForbiddenException();
     }
 
     await this.prisma.user.update({

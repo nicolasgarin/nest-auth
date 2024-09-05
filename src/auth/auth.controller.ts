@@ -12,12 +12,12 @@ export class AuthController {
   }
 
   @Post('signin')
-  signin(@Body() dto: AuthDto, @Req() req, @Res() res) {
-    return this.authService.signin(dto, req, res);
+  signin(@Body() dto: AuthDto, @Res() res) {
+    return this.authService.signin(dto, res);
   }
 
   @Get('signout')
-  signout(@Req() req, @Res() res) {
-    return this.authService.signout(req, res);
+  signout(@Res() res) {
+    return this.authService.signout(res);
   }
 }
