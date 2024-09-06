@@ -11,9 +11,8 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
-
   app.use(cookieParser());
-  
+  app.enableCors();
   await app.listen(5000);
 }
 bootstrap();
